@@ -13,7 +13,7 @@ class WelcomeScreen extends Component {
           />
           <MyButton
             buttonText="Sign Up"
-            onPress={alert('Click Log In!')}
+            onPress={() => alert('Click Log In!') }
           />
       </View>
     );
