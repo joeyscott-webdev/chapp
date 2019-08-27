@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+//custom components
+import EventList from '../components/EventList';
 
 class Events extends Component {
   state = { events: [] };
@@ -18,10 +20,13 @@ class Events extends Component {
     return (
       <View style={ styles.screenContainer }>
         <View style={ styles.eventsHead }>
-          <Text>Events Header</Text>
+          <Text style={{flex: 1}}>Events Header</Text>
+          <View style={{flex: 2, alignItems: 'flex-end',}}>
+            <Image style={{height: 20, width: 20,}} source={require('../assets/images/Icon_Filters.png')} />
+          </View>
         </View>
         <View style={ styles.eventsBody }>
-          <Text>Events Body</Text>
+          <EventList events={this.state.events.content} />
         </View>
       </View>
     );
@@ -35,14 +40,19 @@ const styles = StyleSheet.create({
   },
   eventsHead: {
     flex: 1,
-    backgroundColor: '#ccc',
+    flexDirection: 'row',
+    backgroundColor: '#ddd',
     alignSelf: 'stretch',
     textAlign: 'center',
     borderBottomColor: '#999',
     borderBottomWidth: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   eventsBody: {
-    flex: 8,
+    flex: 10,
     alignSelf: 'stretch',
     textAlign: 'center',
   }
